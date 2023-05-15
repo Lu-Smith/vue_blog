@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Hello World</h1>
-    <p ref="p">My name is {{ name }} and my age is {{ age }}</p>
+    <p>My name is {{ name }} and my age is {{ age }}</p>
     <button @click ="handleClick">click me</button>
   </div>
 </template>
@@ -13,19 +13,16 @@ import { ref } from 'vue'
 export default {
   name: 'HomeView',
   setup() {
-    console.log(this)
 
-    const p = ref(null)
-    let name = 'lucy'
-    let age = 30
+    let name = ref('lucy')
+    let age = ref(30)
 
     const handleClick = () => {
-      console.log(p,p.value)
-      p.value.classList.add('test')
-      p.value.textContent = 'hello'
+      name.value = 'luigi'
+      age.value = '23'
     }
 
-    return {name, age, handleClick, p}
+    return {name, age, handleClick }
   }
 }
 </script>
