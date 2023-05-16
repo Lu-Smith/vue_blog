@@ -1,8 +1,9 @@
 <template>
   <div class="home">
     <h1>Home</h1>
+    <input type="text" v-model="search">
+    <div v-for="name in names" :key="name">{{ name }}</div>
   </div>
-  <p>{{ name }}</p>
 </template>
 
 <script>
@@ -12,10 +13,9 @@ import { computed, ref} from 'vue'
 export default {
   name: 'HomeView',
   setup() {
-    const name = computed(() => {
-      return 'shaun'
-    })
-    return { name }
+    const search = ref('')
+    const names = ref(['mario', 'yoshi', 'luigi', 'toad', 'browser', 'koopa', 'peach'])
+    return { names, search }
   }
 }
 </script>
