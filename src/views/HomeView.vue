@@ -1,26 +1,21 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <input type="text" v-model="search">
-    <p>search term - {{ search }}</p>
-    <div v-for="name in matchingNames" :key="name">{{ name }}</div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import { computed, ref} from 'vue'
+import {ref} from 'vue'
 
 export default {
   name: 'HomeView',
   setup() {
-    const search = ref('')
-    const names = ref(['mario', 'yoshi', 'luigi', 'toad', 'browser', 'koopa', 'peach'])
-
-    const matchingNames = computed(() => {
-      return names.value.filter((name) => name.includes(search.value))
-    })
-    return { names, search, matchingNames }
+    const posts = ref([
+      {title: 'welcome to the blog', body: 'Lorem ipsum', id: 1},
+      {title: 'top 5 css', body: 'Lorem ipsum', id: 2},
+    ])
+    return { posts}
   }
 }
 </script>
