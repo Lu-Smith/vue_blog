@@ -1,10 +1,8 @@
 <template>
   <div class="home">
-    <h1>Hello World</h1>
-    <p>My name is {{ name }} and my age is {{ age }}</p>
-    <button @click ="handleClick">click me</button>
-    <button @click ="age++">add 1 to age</button>
-    <input type="text" v-model="name">
+    <h1>Refs</h1>
+    <p>{{ ninjaOne.name }} - {{ ninjaOne.age }}</p>
+    <button @click ="updateNinjaOne">Update Ninja one</button>
   </div>
 </template>
 
@@ -16,15 +14,13 @@ export default {
   name: 'HomeView',
   setup() {
 
-    let name = ref('lucy')
-    let age = ref(30)
+    const ninjaOne = ref({ name:'mario', age: 30})
 
-    const handleClick = () => {
-      name.value = 'luigi'
-      age.value = '23'
+    const updateNinjaOne = () => {
+      ninjaOne.value.age = 40
     }
 
-    return {name, age, handleClick }
+    return { ninjaOne, updateNinjaOne }
   }
 }
 </script>
