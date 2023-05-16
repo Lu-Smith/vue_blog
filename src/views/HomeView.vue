@@ -5,7 +5,7 @@
     <button @click ="updateNinjaOne">Update Ninja one</button>
     <h1>Rective</h1>
     <p>{{ ninjaTwo.name }} - {{ ninjaTwo.age }}</p>
-    <button @click ="updateNinjaOne">Update Ninja one</button>
+    <button @click ="updateNinjaTwo">Update Ninja two</button>
   </div>
 </template>
 
@@ -24,7 +24,11 @@ export default {
       ninjaOne.value.age = 40
     }
 
-    return { ninjaOne, ninjaTwo, updateNinjaOne }
+    const updateNinjaTwo = () => {
+      ninjaTwo.age = 40
+    }
+
+    return { ninjaOne, ninjaTwo, updateNinjaOne, updateNinjaTwo }
   }
 }
 </script>
