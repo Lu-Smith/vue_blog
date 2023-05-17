@@ -2,16 +2,19 @@
   <div class="post-list">
     <h1>Hello</h1>
     <div v-for="post in posts" :key="post.id" >
-        <h3>{{ post.title }}</h3>
+        <SinglePost :post="post" />
     </div>
   </div>
 </template>
 
 <script>
+import SinglePost from './SinglePost.vue'
+
 export default {
     props: ['posts'],
+    components: { SinglePost },
     setup(props) {
-        console.log(props)
+        console.log(props.posts)
     }
 }
 </script>
