@@ -17,7 +17,7 @@ export default {
     setup(props) {
         onMounted(() => console.log('component mounted'))
         onUnmounted(() => console.log('component unmounted'))
-        onUpdated(() => console.log('component uptedated'))
+        onUpdated(() => console.log('component updated'))
     }
 }
 </script>
