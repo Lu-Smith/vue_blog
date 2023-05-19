@@ -35,7 +35,7 @@ export default {
 
     load()
 
-    return { posts }
+    return { posts, error }
   }
 }
 </script>
