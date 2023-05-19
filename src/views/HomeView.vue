@@ -1,10 +1,8 @@
 <template>
-  <div class="home">
+  <div clases="home">
     <h1>Home</h1>
-    <PostList v-if="showPosts" :posts="posts"/>
-    <button @click="showPosts = !showPosts">toggle posts</button>
-    <button @click="posts.pop()">delete a post</button>
-
+    <div v-if="error">{{ error }}</div>
+    <PostList :posts="posts" />
   </div>
 </template>
 
@@ -27,6 +25,7 @@ export default {
         if(!data.ok) {
           throw Error('no data available')
         }
+        posts.value = await data.json()
       }
       catch(err) {
         error.value = err.message
@@ -36,9 +35,7 @@ export default {
 
     load()
 
-    const showPosts = ref(true)
-
-    return { posts, showPosts }
+    return { posts }
   }
 }
 </script>
